@@ -98,7 +98,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                 <p className="text-xs text-gray-400">{user?.email}</p>
               </div>
               <a
-                href="https://wa.me/21965202658"
+                href="https://wa.me/5521965202658"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition flex items-center gap-2"
