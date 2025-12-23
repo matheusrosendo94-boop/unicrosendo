@@ -2,7 +2,7 @@ import React from "react";
 
 const whatsappNumber = "5521965202658";
 const whatsappMessage =
-  "Olá! Vim pelo painel Surecapta e gostaria de renovar o meu plano !";
+  "Olá! Vim pelo painel de Sure e gostaria de renovar o meu plano !";
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
 const WhatsAppButton: React.FC = () => (
