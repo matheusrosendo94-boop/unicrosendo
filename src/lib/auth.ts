@@ -3,9 +3,9 @@ import jwt from 'jsonwebtoken';
 // Verificar se a variável de ambiente JWT_SECRET está definida
 const JWT_SECRET = process.env.JWT_SECRET;
 
-if (!JWT_SECRET) {
+if (!JWT_SECRET || typeof JWT_SECRET !== 'string') {
   console.error('[FATAL] JWT_SECRET não definida em produção. Configure no .env.production');
-  process.exit(1); // Interrompe a execução do servidor
+  process.exit(1); // Interrompe a execução do servidor se não encontrar JWT_SECRET
 }
 
 // Definição da interface para o payload do JWT
@@ -18,13 +18,11 @@ export interface JWTPayload {
 // Função para assinar o token JWT
 export function signToken(payload: JWTPayload): string {
   if (!payload || typeof payload !== 'object') {
-    throw new Error("Payload deve ser um objeto válido e não pode ser undefined");
+    throw new Error("Payload deve ser um objeto válido e não pode ser undefined ou null");
   }
 
-  // Garantir que payload seja do tipo correto
-  const validatedPayload: JWTPayload = payload as JWTPayload;
-
-  return jwt.sign(validatedPayload, JWT_SECRET, { expiresIn: '7d' });
+  // Agora passamos o payload diretamente para o jwt.sign
+  return jwt.sign(payload, JWT_SECRET, { expiresIn: '7d' });
 }
 
 // Função para verificar o token JWT
