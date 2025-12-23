@@ -1,4 +1,4 @@
-'use client';  // Mantenha apenas essa linha no topo
+'use client';
 
 import { useState } from 'react';
 import { formatDate } from '@/lib/utils';
@@ -25,16 +25,9 @@ interface UsersTableProps {
   loading: boolean;
   onBlockUser: (userId: string, block: boolean) => void;
   onExtendSubscription: (userId: string, days: number) => void;
-  currentUser: { role: string }; // currentUser must have a role property
 }
 
-export default function UsersTable({
-  users,
-  loading,
-  onBlockUser,
-  onExtendSubscription,
-  currentUser,
-}: UsersTableProps) {
+export default function UsersTable({ users, loading, onBlockUser, onExtendSubscription }: UsersTableProps) {
   const [extendingUser, setExtendingUser] = useState<string | null>(null);
   const [daysToExtend, setDaysToExtend] = useState('30');
 
@@ -47,15 +40,6 @@ export default function UsersTable({
     );
   }
 
-  // Verifique se o usuário logado é admin
-  if (currentUser.role !== 'admin') {
-    return (
-      <div className="text-center py-12 bg-gray-800/50 rounded-xl border border-gray-700">
-        <p className="mt-4 text-gray-400">Acesso restrito. Apenas administradores podem acessar este painel.</p>
-      </div>
-    );
-  }
-
   const getStatusBadge = (status: string) => {
     const badges = {
       trial: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
@@ -64,7 +48,7 @@ export default function UsersTable({
       blocked: 'bg-gray-500/20 text-gray-400 border-gray-500/30',
       admin: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
     };
-
+    
     const labels = {
       trial: 'Trial',
       subscribed: 'Assinante',
@@ -191,9 +175,9 @@ export default function UsersTable({
                 </td>
               </tr>
             ))}
-          </tbody> {/* Fechando tbody */}
-        </table> {/* Fechando table */}
-      </div> {/* Fechando div overflow-x-auto */}
-    </div> {/* Fechando div bg-gray-800/50 */}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 }
