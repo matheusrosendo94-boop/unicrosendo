@@ -27,7 +27,7 @@ interface UsersTableProps {
   onExtendSubscription: (userId: string, days: number) => void;
 }
 
-export default function UsersTable({ users, loading, onBlockUser, onExtendSubscription }: UsersTableProps) {
+export default function UsersTable({ users, loading, onBlockUser, onExtendSubscription, currentUser }) {
   const [extendingUser, setExtendingUser] = useState<string | null>(null);
   const [daysToExtend, setDaysToExtend] = useState('30');
 
@@ -36,6 +36,15 @@ export default function UsersTable({ users, loading, onBlockUser, onExtendSubscr
       <div className="text-center py-12 bg-gray-800/50 rounded-xl border border-gray-700">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500 mx-auto"></div>
         <p className="mt-4 text-gray-400">Carregando usuários...</p>
+      </div>
+    );
+  }
+
+  // Verifique se o usuário logado é admin
+  if (currentUser.role !== 'admin') {
+    return (
+      <div className="text-center py-12 bg-gray-800/50 rounded-xl border border-gray-700">
+        <p className="mt-4 text-gray-400">Acesso restrito. Apenas administradores podem acessar este painel.</p>
       </div>
     );
   }
@@ -179,5 +188,3 @@ export default function UsersTable({ users, loading, onBlockUser, onExtendSubscr
         </table>
       </div>
     </div>
-  );
-}
