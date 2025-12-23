@@ -1,6 +1,6 @@
 module.exports = {
   apps: [{
-    name: 'surecapta',
+    name: 'Bughunter',
     script: 'node_modules/next/dist/bin/next',
     args: 'start',
     instances: 1,
