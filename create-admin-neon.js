@@ -5,10 +5,10 @@ const prisma = new PrismaClient();
 
 async function createAdmin() {
   try {
-    const hash = bcrypt.hashSync('Admin@123', 10);
+    const hash = bcrypt.hashSync('@Batata123', 10);
     await prisma.user.create({
       data: {
-        email: 'admin@surebet.com',
+        email: 'matheusrosendo95@gmail.com',
         password: hash,
         name: 'Administrador',
         role: 'admin'
