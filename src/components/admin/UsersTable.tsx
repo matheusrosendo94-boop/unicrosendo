@@ -1,4 +1,4 @@
-use client';
+'use client';  // Mantenha apenas esta linha
 
 import { useState } from 'react';
 import { formatDate } from '@/lib/utils';
@@ -181,5 +181,3 @@ export default function UsersTable({ users, loading, onBlockUser, onExtendSubscr
     </div>
   );
 }
-
-
