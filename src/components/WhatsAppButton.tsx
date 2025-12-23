@@ -1,6 +1,6 @@
 import React from "react";
 
-const whatsappNumber = "5521998405571";
+const whatsappNumber = "5521965202658";
 const whatsappMessage =
   "Olá! Vim pelo painel Surecapta e gostaria de renovar o meu plano !";
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
