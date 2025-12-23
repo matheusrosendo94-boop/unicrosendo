@@ -190,3 +190,4 @@ export default function UsersTable({ users, loading, onBlockUser, onExtendSubscr
     </div>
   );
 }
+
