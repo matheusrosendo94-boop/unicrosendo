@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuth } from '@/components/providers/';
 
-const whatsappNumber = "21998405571";
+const whatsappNumber = "21965202658";
 
 export default function BotaoRenovarWhatsapp() {
   const { user } = useAuth();
