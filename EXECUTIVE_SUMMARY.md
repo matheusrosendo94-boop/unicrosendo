@@ -12,7 +12,7 @@ npm run server
 # Acesse: http://localhost:3000
 \`\`\`
 
-**Login:** admin@surebet.com / Admin@123
+**Login:** matheusrosendo95@gmail.com / @Batata123
 
 ---
 
