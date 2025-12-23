@@ -18,8 +18,8 @@ export interface JWTPayload {
 
 // Função para assinar o token JWT
 export function signToken(payload: JWTPayload): string {
-  if (!payload) {
-    throw new Error("Payload não pode ser undefined");
+  if (!payload || typeof payload !== 'object') {
+    throw new Error("Payload deve ser um objeto válido e não pode ser undefined");
   }
   return jwt.sign(payload, JWT_SECRET, { expiresIn: '7d' });
 }
