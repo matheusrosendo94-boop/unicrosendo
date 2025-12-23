@@ -21,9 +21,12 @@ export function signToken(payload: JWTPayload): string {
   return jwt.sign(payload, JWT_SECRET, { expiresIn: '7d' });
 }
 
-// Função para verificar o token JWT
-export function verifyToken(token: string): JWTPayload {
-  return jwt.verify(token, JWT_SECRET) as JWTPayload;
+// Função para assinar o token JWT
+export function signToken(payload: JWTPayload): string {
+  if (!payload) {
+    throw new Error("Payload não pode ser undefined");
+  }
+  return jwt.sign(payload, JWT_SECRET, { expiresIn: '7d' });
 }
 
 // Função para decodificar o token JWT sem verificar a assinatura
