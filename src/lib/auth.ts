@@ -21,8 +21,9 @@ export function signToken(payload: JWTPayload): string {
   if (!payload || typeof payload !== 'object') {
     throw new Error("Payload deve ser um objeto válido e não pode ser undefined");
   }
-  return jwt.sign(payload, JWT_SECRET, { expiresIn: '7d' });
+  return jwt.sign(payload as object, JWT_SECRET, { expiresIn: '7d' });
 }
+
 
 
 // Função para decodificar o token JWT sem verificar a assinatura
